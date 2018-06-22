@@ -37,6 +37,9 @@
 				    <td th:text="${agendamentos.semana}"></td>
 				    <td th:text="${agendamentos.dia}"></td>
 				    <td th:text="${agendamentos.horario}"></td>
+				    
+				    <td><a th:href="${'/agendamento/listarAgendamento/' + agendamentos.id}">Excluir</a></td>
+				    
 				</table>
 
 			</div>

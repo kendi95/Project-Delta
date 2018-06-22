@@ -37,6 +37,9 @@
 				    <td th:text="${servicos.nome}"></td>
 				    <td th:text="${servicos.descricao}"></td>
 				    <td th:text="${servicos.profissional.nome}"></td>
+				    
+				    <td><a th:href="${'/servico/listarServico/' + servicos.id}">Excluir</a></td>
+				    
 				</table>
 
 			</div>

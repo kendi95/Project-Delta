@@ -30,7 +30,6 @@
 
 			<div class="col-8">
 
-				
 
 				<table th:each="clientes : ${lista}" class="table">
 				    <td th:text="${clientes.id}"></td>
@@ -38,7 +37,10 @@
 				    <td th:text="${clientes.cpf}"></td>
 				    <td th:text="${clientes.telefone.numero}"></td>
 				    
+				    <td><a th:href="${'/aluno/listarAluno/' + clientes.id}">Excluir</a></td>
+				    
 				</table>
+				
 
 			</div>
 
@@ -47,7 +49,6 @@
 	</div>
 
 </div>
-
 
 
 

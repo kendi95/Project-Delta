@@ -39,6 +39,8 @@
 				    <td th:text="${profissionais.email}"></td>
 				    <td th:text="${profissionais.telefone.numero}"></td>
 				    
+				    <td><a th:href="${'/profissional/listarProfissional/' + profissionais.id}">Excluir</a></td>
+				    
 				</table>
 
 			</div>
