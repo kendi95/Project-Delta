@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://www.thymeleaf.org">
+
+<head>
+
+<title>Cadastrar Serviço</title>
+
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<!-- Bootstrap core CSS -->
+    <link rel="stylesheet" th:href="@{/css/bootstrap.min.css}"/>
+<!-- Font Icons -->
+    <link rel="stylesheet" th:href="@{/css/font-awesome.min.css}"/>
+ 
+
+</head>
+
+<body>
+
+
+
+	<form action="#" th:action="@{/servico/cadastrarServico}" th:object="${servico}" method="post">
+	 
+		 <div class="container">
+			 <div class="well">
+			 
+			 	<h2>Cadastro de Serviço</h2>
+			 
+			 </div>
+		 
+		 <div class="row">
+		 	<div class="col-4">
+				<label>Nome do serviço:</label>
+				<input type="text" th:field="${servico.nome}" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4">
+				<label>Descrição do serviço:</label>
+				<textarea th:field="${servico.descricao}" />
+			</div>
+		</div>
+		<div class="row">
+			<div class="col-4">
+				<select th:field="${servico.idProf}">
+    				<option value="">Selecione o profissional</option>
+   					<option th:each="lista : ${listaProf}" 
+   							th:value="${lista.id}" 
+   							th:text="${lista.nome}">
+   					</option>
+    			</select>
+			</div>
+		</div>
+		
+		<br/>
+		
+		<button type="submit">Cadastrar</button>
+		 
+		 </div>
+	 
+	</form>
+
+
+
+
+
+</body>
+
+</html>

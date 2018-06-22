@@ -21,6 +21,7 @@ import com.kohatsu.projectdelta.domain.Profissional;
 import com.kohatsu.projectdelta.domain.Servico;
 import com.kohatsu.projectdelta.dto.ClienteNewDTO;
 import com.kohatsu.projectdelta.dto.ProfissionalNewDTO;
+import com.kohatsu.projectdelta.dto.ServicoNewDTO;
 import com.kohatsu.projectdelta.services.AgendamentoService;
 import com.kohatsu.projectdelta.services.ClienteService;
 import com.kohatsu.projectdelta.services.ProfissionalService;
@@ -65,6 +66,18 @@ public class PaginacaoResource {
 	public ModelAndView formProfissional(ModelAndView mv) {
 		
 		mv.addObject("profissional", new ProfissionalNewDTO());
+		
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="/servico/cadastrarServico")
+	public ModelAndView formServico(ModelAndView mv) {
+		
+		List<Profissional> list = profissionalService.findAll();
+		
+		mv.addObject("servico", new ServicoNewDTO());
+		mv.addObject("listaProf", list);
 		
 		return mv;
 		
@@ -141,6 +154,16 @@ public class PaginacaoResource {
 		profissionalService.insert(obj);
 		
 		return listarProfissional();
+		
+	}
+	
+	@RequestMapping(value="/servico/cadastrarServico", method=RequestMethod.POST)
+	public ModelAndView insert(@ModelAttribute ServicoNewDTO objDto) {
+		
+		Servico obj = servicoService.fromDTO(objDto);
+		servicoService.insert(obj);
+		
+		return listarServico();
 		
 	}
 	
