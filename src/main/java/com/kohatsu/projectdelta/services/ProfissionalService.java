@@ -133,4 +133,15 @@ public class ProfissionalService {
 	}
 	
 	
+	public ProfissionalNewDTO toProfissionalNewDto(Profissional obj) {
+		
+		ProfissionalNewDTO objDto = new ProfissionalNewDTO(obj.getId(), obj.getNome(), obj.getCpf(), obj.getEmail(), 
+				obj.getTelefone().getId(), obj.getTelefone().getDdd(), obj.getTelefone().getNumero(), 
+				obj.getEndereco().getId(), obj.getEndereco().getLogradouro(), obj.getEndereco().getNumero(), 
+				obj.getEndereco().getComplemento(), obj.getEndereco().getBairro(), obj.getEndereco().getCep());
+		
+		return objDto;
+		
+	}
+	
 }

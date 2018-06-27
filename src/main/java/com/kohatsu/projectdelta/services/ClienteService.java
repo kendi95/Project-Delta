@@ -132,4 +132,15 @@ public class ClienteService {
 		
 	}
 	
+	public ClienteNewDTO toClienteNewDTO(Cliente obj) {
+		
+		ClienteNewDTO objDto = new ClienteNewDTO(obj.getId(), obj.getNome(), obj.getSexo(), obj.getCpf(), 
+				obj.getTelefone().getId(), obj.getTelefone().getDdd(), obj.getTelefone().getNumero(), 
+				obj.getEndereco().getId(), obj.getEndereco().getLogradouro(), obj.getEndereco().getNumero(), 
+				obj.getEndereco().getComplemento(), obj.getEndereco().getBairro(), obj.getEndereco().getCep());
+		
+		return objDto;
+		
+	}
+	
 }

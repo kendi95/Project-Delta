@@ -37,6 +37,8 @@
 				    <td th:text="${clientes.cpf}"></td>
 				    <td th:text="${clientes.telefone.numero}"></td>
 				    
+				    <td><a th:href="${'/aluno/editarAluno/' + clientes.id}">Editar</a></td>
+				    
 				    <td><a th:href="${'/aluno/listarAluno/' + clientes.id}">Excluir</a></td>
 				    
 				</table>

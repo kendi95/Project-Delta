@@ -26,6 +26,31 @@ public class ProfissionalNewDTO implements Serializable{
 	public ProfissionalNewDTO() {}
 	
 	
+	
+	
+	
+	public ProfissionalNewDTO(Integer id, String nome, String cpf, String email, Integer idTel, String ddd,
+			String numeroTel, Integer idEnd, String logradouro, String numeroEnd, String complemento, String bairro,
+			String cep) {
+		this.id = id;
+		this.nome = nome;
+		this.cpf = cpf;
+		this.email = email;
+		this.idTel = idTel;
+		this.ddd = ddd;
+		this.numeroTel = numeroTel;
+		this.idEnd = idEnd;
+		this.logradouro = logradouro;
+		this.numeroEnd = numeroEnd;
+		this.complemento = complemento;
+		this.bairro = bairro;
+		this.cep = cep;
+	}
+
+
+
+
+
 	public Integer getId() {
 		return id;
 	}

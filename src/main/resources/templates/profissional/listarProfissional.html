@@ -32,14 +32,16 @@
 
 				
 
-				<table th:each="profissionais : ${lista}" class="table">
-				    <td th:text="${profissionais.id}"></td>
-				    <td th:text="${profissionais.nome}"></td>
-				    <td th:text="${profissionais.cpf}"></td>
-				    <td th:text="${profissionais.email}"></td>
-				    <td th:text="${profissionais.telefone.numero}"></td>
+				<table th:each="profissional : ${lista}" class="table">
+				    <td th:text="${profissional.id}"></td>
+				    <td th:text="${profissional.nome}"></td>
+				    <td th:text="${profissional.cpf}"></td>
+				    <td th:text="${profissional.email}"></td>
+				    <td th:text="${profissional.telefone.numero}"></td>
 				    
-				    <td><a th:href="${'/profissional/listarProfissional/' + profissionais.id}">Excluir</a></td>
+				    <td><a th:href="${'/profissional/editarProfissional/' + profissional.id}">Editar</a></td>
+				    
+				    <td><a th:href="${'/profissional/listarProfissional/' + profissional.id}">Excluir</a></td>
 				    
 				</table>
 

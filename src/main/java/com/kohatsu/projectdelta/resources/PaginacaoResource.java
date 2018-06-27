@@ -1,22 +1,13 @@
 package com.kohatsu.projectdelta.resources;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.Date;
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
-
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -252,5 +243,59 @@ public class PaginacaoResource {
 		return listarServico();
 		
 	}
+	
+	
+	//Inserir os dados da tabela no campo de editar
+	@RequestMapping(value="/aluno/editarAluno/{id}")
+	public ModelAndView fromUpdate(Cliente obj, @PathVariable("id") Integer id) {
+		
+		obj = service.find(id);
+		
+		ClienteNewDTO cNewDto = service.toClienteNewDTO(obj);
+		
+		ModelAndView mv = new ModelAndView("aluno/editarAluno");
+		
+		mv.addObject("aluno", cNewDto);
+		
+		return mv;
+		
+	}
+	
+	@RequestMapping(value="/profissional/editarProfissional/{id}")
+	public ModelAndView fromUpdate(Profissional obj, @PathVariable("id") Integer id) {
+		
+		obj = profissionalService.find(id);
+		
+		ProfissionalNewDTO pNewDto = profissionalService.toProfissionalNewDto(obj);
+		
+		ModelAndView mv = new ModelAndView("profissional/editarProfissional");
+		
+		mv.addObject("profissional", pNewDto);
+		
+		return mv;
+		
+	}
+	
+	//Editar registro
+		@RequestMapping(value="/aluno/editarAluno", method=RequestMethod.PUT)
+		public ModelAndView update(@ModelAttribute ClienteNewDTO objDto) {
+			
+			Cliente obj = service.fromDTO(objDto);
+			service.update(obj);
+			
+			return new ModelAndView("redirect:/aluno/listarAluno");
+			
+		}
+		
+		@RequestMapping(value="/profissional/editarProfissional", method=RequestMethod.PUT)
+		public ModelAndView update(@ModelAttribute ProfissionalNewDTO objDto) {
+			
+			Profissional obj = profissionalService.fromDTO(objDto);
+			profissionalService.update(obj);
+			
+			return new ModelAndView("redirect:/profissional/listarProfissional");
+			
+		}
+	
 	
 }
