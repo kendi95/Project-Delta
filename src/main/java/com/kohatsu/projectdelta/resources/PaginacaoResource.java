@@ -276,6 +276,23 @@ public class PaginacaoResource {
 		
 	}
 	
+	@RequestMapping(value="/servico/editarServico/{id}")
+	public ModelAndView fromUpdate(Servico obj, @PathVariable("id") Integer id) {
+		
+		obj = servicoService.find(id);
+		
+		ServicoNewDTO sNewDto = servicoService.toServicoNewDto(obj);
+		List<Profissional> list = profissionalService.findAll();
+		
+		ModelAndView mv = new ModelAndView("servico/editarServico");
+		
+		mv.addObject("servico", sNewDto);
+		mv.addObject("listaProf", list);
+		
+		return mv;
+		
+	}
+	
 	//Editar registro
 		@RequestMapping(value="/aluno/editarAluno", method=RequestMethod.PUT)
 		public ModelAndView update(@ModelAttribute ClienteNewDTO objDto) {
@@ -294,6 +311,19 @@ public class PaginacaoResource {
 			profissionalService.update(obj);
 			
 			return new ModelAndView("redirect:/profissional/listarProfissional");
+			
+		}
+		
+		@RequestMapping(value="/servico/editarServico", method=RequestMethod.PUT)
+		public ModelAndView update(@ModelAttribute ServicoNewDTO objDto) {
+			
+			System.out.println("Entrou aqui!!!");
+			System.out.println(objDto.getId()+" "+objDto.getNome()+" "+objDto.getDescricao()+" "+objDto.getIdProf());
+			
+			Servico obj = servicoService.fromDTO(objDto);
+			servicoService.update(obj);
+			
+			return new ModelAndView("redirect:/servico/listarServico");
 			
 		}
 	

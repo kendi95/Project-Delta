@@ -4,9 +4,9 @@
 
 <head>
 
-<title>Cadastrar Serviço</title>
+<title>Editar Aluno</title>
 
-<meta charset="UTF-8"/>
+<meta charset="UTF-8"/> 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
 
 <!-- Bootstrap core CSS -->
@@ -19,32 +19,36 @@
 
 <body>
 
-
-
-	<form action="#" th:action="@{/servico/cadastrarServico}" th:object="${servico}" th:method="post">
+	<!-- EDITAR SERVIÇO -->
+	<form th:if="${servico.id} != null" th:action="@{/servico/editarServico}" th:object="${servico}" th:method="put">
 	 
-		 <div class="container">
+	 <div class="container">
 			 <div class="well">
 			 
-			 	<h2>Cadastro de Serviço</h2>
+			 	<h2>Edição de Serviço</h2>
 			 
 			 </div>
-		 
-		 <div class="row">
+		<div class="row">
+		 	<div class="col-4">
+				<label>Id:</label>
+				<input type="text" th:field="*{id}" />
+			</div>
+		</div>
+		<div class="row">
 		 	<div class="col-4">
 				<label>Nome do serviço:</label>
-				<input type="text" th:field="${servico.nome}" />
+				<input type="text" th:field="*{nome}" />
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-4">
 				<label>Descrição do serviço:</label>
-				<textarea th:field="${servico.descricao}" />
+				<textarea th:field="*{descricao}" />
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-4">
-				<select th:field="${servico.idProf}">
+				<select th:field="*{idProf}">
     				<option value="">Selecione o profissional</option>
    					<option th:each="lista : ${listaProf}" 
    							th:value="${lista.id}" 
@@ -56,11 +60,11 @@
 		
 		<br/>
 		
-		<button type="submit">Cadastrar</button>
+		<button type="submit">Editar</button>
 		 
 		 </div>
-	 
-	</form>
+		 
+	 </form>
 
 
 

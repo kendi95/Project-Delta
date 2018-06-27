@@ -11,12 +11,21 @@ public class ServicoNewDTO implements Serializable{
 	
 	private Integer idProf;
 	
-	public ServicoNewDTO() {
-		
-	}
+	public ServicoNewDTO() {}
 
 	
-	
+	public ServicoNewDTO(Integer id, String nome, String descricao, Integer idProf) {
+		super();
+		this.id = id;
+		this.nome = nome;
+		this.descricao = descricao;
+		this.idProf = idProf;
+	}
+
+
+
+
+
 	public Integer getId() {
 		return id;
 	}

@@ -79,6 +79,8 @@ public class ServicoService {
 
 	public Servico fromDTO(@Valid ServicoNewDTO objDto) {
 		
+		System.out.println("Entrou aqui, fromDTO");
+		
 		if(objDto.getId() == null) {
 			
 			Profissional profissional = profissionalService.find(objDto.getIdProf());
@@ -106,9 +108,18 @@ public class ServicoService {
 		newObj.setId(obj.getId());
 		newObj.setNome(obj.getNome());
 		newObj.setDescricao(obj.getDescricao());
-		newObj.getProfissional().setId(obj.getProfissional().getId());
+		newObj.setProfissional(obj.getProfissional());
 		
 		return repo.save(newObj);
+		
+	}
+	
+	
+	public ServicoNewDTO toServicoNewDto(Servico obj) {
+	
+		ServicoNewDTO objDto = new ServicoNewDTO(obj.getId(), obj.getNome(), obj.getDescricao(), obj.getProfissional().getId());
+		
+		return objDto;
 		
 	}
 	

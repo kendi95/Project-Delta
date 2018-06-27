@@ -32,13 +32,15 @@
 
 				
 
-				<table th:each="servicos : ${lista}" class="table">
-				    <td th:text="${servicos.id}"></td>
-				    <td th:text="${servicos.nome}"></td>
-				    <td th:text="${servicos.descricao}"></td>
-				    <td th:text="${servicos.profissional.nome}"></td>
+				<table th:each="servico : ${lista}" class="table">
+				    <td th:text="${servico.id}"></td>
+				    <td th:text="${servico.nome}"></td>
+				    <td th:text="${servico.descricao}"></td>
+				    <td th:text="${servico.profissional.nome}"></td>
 				    
-				    <td><a th:href="${'/servico/listarServico/' + servicos.id}">Excluir</a></td>
+				    <td><a th:href="${'/servico/editarServico/' + servico.id}">Editar</a></td>
+				    
+				    <td><a th:href="${'/servico/listarServico/' + servico.id}">Excluir</a></td>
 				    
 				</table>
 
