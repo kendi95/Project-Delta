@@ -168,7 +168,7 @@ public class PaginacaoResource {
 		Cliente obj = service.fromDTO(objDto);
 		service.insert(obj);
 		
-		return listarAluno();
+		return new ModelAndView("redirect:/aluno/listarAluno");
 		
 	}
 	
@@ -178,7 +178,7 @@ public class PaginacaoResource {
 		Profissional obj = profissionalService.fromDTO(objDto);
 		profissionalService.insert(obj);
 		
-		return listarProfissional();
+		return new ModelAndView("redirect:/profissional/listarProfissional");
 		
 	}
 	
@@ -188,7 +188,7 @@ public class PaginacaoResource {
 		Servico obj = servicoService.fromDTO(objDto);
 		servicoService.insert(obj);
 		
-		return listarServico();
+		return new ModelAndView("redirect:/servico/listarServico");
 		
 	}
 	
@@ -208,7 +208,7 @@ public class PaginacaoResource {
 		Agendamento obj = agendamentoService.fromDTO(objDto);
 		agendamentoService.insert(obj);
 		
-		return listarAgendamento();
+		return new ModelAndView("redirect:/agendamento/listarAgendamento");
 		
 	}
 	
@@ -218,7 +218,7 @@ public class PaginacaoResource {
 		
 		service.delete(id);
 		
-		return listarAluno();
+		return new ModelAndView("redirect:/aluno/listarAluno");
 		
 	}
 	
@@ -227,7 +227,7 @@ public class PaginacaoResource {
 		
 		profissionalService.delete(id);
 		
-		return listarProfissional();
+		return new ModelAndView("redirect:/profissional/listarProfissional");
 		
 	}
 	
@@ -236,7 +236,7 @@ public class PaginacaoResource {
 		
 		agendamentoService.delete(id);
 		
-		return listarAgendamento();
+		return new ModelAndView("redirect:/agendamento/listarAgendamento");
 		
 	}
 	
@@ -245,7 +245,7 @@ public class PaginacaoResource {
 		
 		servicoService.delete(id);
 		
-		return listarServico();
+		return new ModelAndView("redirect:/servico/listarServico");
 		
 	}
 	
@@ -321,9 +321,6 @@ public class PaginacaoResource {
 		
 		@RequestMapping(value="/servico/editarServico", method=RequestMethod.PUT)
 		public ModelAndView update(@ModelAttribute ServicoNewDTO objDto) {
-			
-			System.out.println("Entrou aqui!!!");
-			System.out.println(objDto.getId()+" "+objDto.getNome()+" "+objDto.getDescricao()+" "+objDto.getIdProf());
 			
 			Servico obj = servicoService.fromDTO(objDto);
 			servicoService.update(obj);

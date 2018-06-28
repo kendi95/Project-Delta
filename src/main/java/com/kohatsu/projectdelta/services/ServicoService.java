@@ -79,8 +79,6 @@ public class ServicoService {
 
 	public Servico fromDTO(@Valid ServicoNewDTO objDto) {
 		
-		System.out.println("Entrou aqui, fromDTO");
-		
 		if(objDto.getId() == null) {
 			
 			Profissional profissional = profissionalService.find(objDto.getIdProf());

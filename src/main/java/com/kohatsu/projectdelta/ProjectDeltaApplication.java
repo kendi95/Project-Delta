@@ -55,7 +55,7 @@ public class ProjectDeltaApplication implements CommandLineRunner{
 		telefoneRepository.saveAll(Arrays.asList(tel2, tel3));
 		
 		Profissional pro1 = new Profissional(null, "Anderson", "62828648010", "anderson@gmail.com", end2, tel2);
-		Profissional pro2 = new Profissional(null, "Anderson", "62828648010", "anderson@gmail.com", end3, tel3);
+		Profissional pro2 = new Profissional(null, "Helton", "62828648010", "helton@gmail.com", end3, tel3);
 		
 		end2.getProfissionais().addAll(Arrays.asList(pro1));
 		end3.getProfissionais().addAll(Arrays.asList(pro2));
