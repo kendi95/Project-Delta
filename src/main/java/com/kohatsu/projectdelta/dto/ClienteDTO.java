@@ -10,7 +10,7 @@ public class ClienteDTO implements Serializable{
 	
 	private Integer id;
 	private String nome;
-	private char sexo;
+	private String sexo;
 	private String cpf;
 	
 	
@@ -49,12 +49,12 @@ public class ClienteDTO implements Serializable{
 	}
 
 
-	public char getSexo() {
+	public String getSexo() {
 		return sexo;
 	}
 
 
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 

@@ -82,8 +82,8 @@ public class ProjectDeltaApplication implements CommandLineRunner{
 		enderecoRepository.saveAll(Arrays.asList(end1, end4));
 		telefoneRepository.saveAll(Arrays.asList(tel1,tel4));
 		
-		Cliente cli1 = new Cliente(null, "Alisson", 'M',"35447310881", end1, tel1);
-		Cliente cli2 = new Cliente(null, "Willian", 'M',"56242986094", end4, tel4);
+		Cliente cli1 = new Cliente(null, "Alisson", "alisson@alisson.com.br", "M","35447310881", end1, tel1);
+		Cliente cli2 = new Cliente(null, "Willian", "willian@willian.com.br","M","56242986094", end4, tel4);
 		
 		end1.getClientes().addAll(Arrays.asList(cli1));
 		end4.getClientes().addAll(Arrays.asList(cli2));

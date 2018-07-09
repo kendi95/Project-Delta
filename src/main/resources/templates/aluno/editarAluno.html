@@ -114,7 +114,7 @@
 						<div class="col-lg-5">
 							<div class="form-group">
 								<label for="exampleInputName2">E-mail*</label> <input
-									type="text" class="form-control" id="exampleInputName2"
+									type="text" th:field="*{email}" class="form-control" id="exampleInputName2"
 									autocomplete="name" required placeholder="xxx@xxx.com.br"
 									size="50">
 							</div>
@@ -177,8 +177,8 @@
 									<label for="cep">CEP*</label> <input type="text"
 										th:field="*{cep}" class="form-control" id="cep"
 										placeholder="86090000" required size="5">
-									<button class="btn btn-info"
-										onclick="pesquisacep(document.getElementById('cep').value);">Buscar</button>
+									<a class="btn btn-info"
+										onclick="pesquisacep(document.getElementById('cep').value);">Buscar</a>
 								</div>
 							</div>
 						</div>
@@ -225,7 +225,7 @@
 					<div class="row">
 						<div class="col-md-10"></div>
 						<div class="col-md-2">
-							<button type="submit" class="btn btn-success">Cadastrar</button>
+							<button type="submit" class="btn btn-success">Editar</button>
 						</div>
 					</div>
 				</form>

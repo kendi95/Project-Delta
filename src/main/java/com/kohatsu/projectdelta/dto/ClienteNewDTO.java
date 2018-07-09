@@ -10,7 +10,8 @@ public class ClienteNewDTO implements Serializable{
 
 	private Integer id;
 	private String nome;
-	private char sexo;
+	private String email;
+	private String sexo;
 	private String cpf;
 	
 	private Integer idTel;
@@ -30,10 +31,11 @@ public class ClienteNewDTO implements Serializable{
 	public ClienteNewDTO() {}
 	
 	
-	public ClienteNewDTO(Integer id, String nome, char sexo, String cpf, Integer idTel, String ddd, String numeroTel,
+	public ClienteNewDTO(Integer id, String nome, String email, String sexo, String cpf, Integer idTel, String ddd, String numeroTel,
 			Integer idEnd, String logradouro, String numeroEnd, String complemento, String bairro, String cep) {
 		this.id = id;
 		this.nome = nome;
+		this.email=email;
 		this.sexo = sexo;
 		this.cpf = cpf;
 		this.idTel = idTel;
@@ -60,10 +62,16 @@ public class ClienteNewDTO implements Serializable{
 	public void setNome(String nome) {
 		this.nome = nome;
 	}
-	public char getSexo() {
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public String getSexo() {
 		return sexo;
 	}
-	public void setSexo(char sexo) {
+	public void setSexo(String sexo) {
 		this.sexo = sexo;
 	}
 	public String getCpf() {

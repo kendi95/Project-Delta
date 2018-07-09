@@ -56,12 +56,7 @@ public class PaginacaoResource {
 	@RequestMapping(value="/aluno/cadastrarAluno")
 	public ModelAndView formAluno(ModelAndView mv) {
 		
-		List<String> list = new ArrayList<>();
-		
-		list.addAll(Arrays.asList("Masculino", "Feminino"));
-		
 		mv.addObject("aluno", new ClienteNewDTO());
-		mv.addObject("lista", list);
 		
 		return mv;
 		
